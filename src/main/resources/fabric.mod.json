@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "map_saver",
+  "version": "${version}",
+  "name": "Map Saver",
+  "description": "A client only mod that allows you to save maps from item frames as images",
+  "authors": [
+    "Daniel K."
+  ],
+  "contact": {
+    "discord": "https://discord.gg/WtdP245E8Q"
+  },
+  "license": "MIT",
+  "icon": "assets/map_saver/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "daniel.map_saver.MapSaver"
+    ]
+  },
+  "mixins": [
+    "map_saver.mixins.json"
+  ],
+  "accessWidener": "map_saver.accesswidener",
+  "depends": {
+    "fabric": "*",
+    "fabricloader": ">=0.12.2",
+    "minecraft": "1.17.1"
+  }
+}

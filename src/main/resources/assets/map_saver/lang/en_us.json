@@ -1,0 +1,5 @@
+{
+  "button.map_saver.save": "Save As Image",
+  "title.map_saver": "Map Saver",
+  "map_saver.success": "Saved a screenshot of %s as %s"
+}

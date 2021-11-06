@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "daniel.map_saver.mixin",
+  "compatibilityLevel": "JAVA_16",
+  "client": [
+    "ItemFrameEntityMixin",
+    "MapRendererInvoker",
+    "MapTextureAccessor",
+    "ScreenshotRecorderInvoker"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
