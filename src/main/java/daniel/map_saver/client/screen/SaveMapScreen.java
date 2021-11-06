@@ -64,7 +64,6 @@ public class SaveMapScreen extends Screen {
     protected void init() {
 
         this.mapState = FilledMapItem.getMapState(mapId, this.client.world);
-        System.out.println(this.x);
 
         this.x = (this.width - this.backgroundWidth) / 2;
         this.y = (this.height - this.backgroundHeight) / 2;
@@ -122,12 +121,11 @@ public class SaveMapScreen extends Screen {
         matrices.push();
 
         //I spent 2 days trying to figure out why this wasn't working. Turns out you shouldn't scale before translating.
-        matrices.translate(this.x + 4, this.y + 13, 0 );
+        matrices.translate(this.x + 4, this.y + 13, 1);
         matrices.scale(0.69f, 0.69f, 1f);
 
 
         VertexConsumerProvider.Immediate immediate = this.client.getBufferBuilders().getEntityVertexConsumers();
-
         this.client.gameRenderer.getMapRenderer().draw(matrices, immediate, this.mapId, this.mapState, false, LightmapTextureManager.MAX_LIGHT_COORDINATE);
         immediate.draw();
 

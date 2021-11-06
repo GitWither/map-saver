@@ -8,6 +8,9 @@
     "Daniel K."
   ],
   "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/map-saver",
+    "sources": "https://github.com/GitWither/map-saver",
+    "issues": "https://github.com/GitWither/map-saver/issues",
     "discord": "https://discord.gg/WtdP245E8Q"
   },
   "license": "MIT",
@@ -23,8 +26,8 @@
   ],
   "accessWidener": "map_saver.accesswidener",
   "depends": {
-    "fabric": "*",
     "fabricloader": ">=0.12.2",
+    "fabric": "*",
     "minecraft": "1.17.1"
   }
 }
