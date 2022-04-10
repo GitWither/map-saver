@@ -95,7 +95,7 @@ public class SaveMapScreen extends Screen {
                 }
             });
 
-            this.onClose();
+            this.close();
         }));
 
         super.init();
