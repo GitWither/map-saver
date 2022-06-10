@@ -9,7 +9,6 @@ import daniel.map_saver.mixin.ScreenshotRecorderInvoker;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.gui.screen.ScreenTexts;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.client.render.*;
@@ -20,9 +19,7 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.FilledMapItem;
 import net.minecraft.item.map.MapState;
 import net.minecraft.text.ClickEvent;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Util;
@@ -38,7 +35,7 @@ import java.util.Map;
 
 public class SaveMapScreen extends Screen {
     private static final Identifier BACKGROUND = new Identifier(MapSaver.MOD_ID, "textures/gui/map_saver_gui.png");
-    private static final Text TITLE = new TranslatableText("title.map_saver");
+    private static final Text TITLE = Text.translatable("title.map_saver");
     private MapState mapState;
     private final int mapId;
 
@@ -71,7 +68,7 @@ public class SaveMapScreen extends Screen {
         this.titleX = (this.backgroundWidth - textRenderer.getWidth(TITLE)) / 2 + this.x;
         this.titleY = this.y + 4;
 
-        this.addDrawableChild(new ButtonWidget(this.x + 4, this.y + 105, 88, 20, new TranslatableText("button.map_saver.save"), (button) -> {
+        this.addDrawableChild(new ButtonWidget(this.x + 4, this.y + 105, 88, 20, Text.translatable("button.map_saver.save"), (button) -> {
             MapRenderer.MapTexture txt = ((MapRendererInvoker)MinecraftClient.getInstance().gameRenderer.getMapRenderer()).invokeGetMapTexture(mapId, mapState);
 
 
@@ -85,10 +82,11 @@ public class SaveMapScreen extends Screen {
                 try {
                     ((MapTextureAccessor)txt).getNativeImage().getImage().writeTo(screenshot);
 
-                    Text text = (new LiteralText(screenshot.getName())).formatted(Formatting.UNDERLINE, Formatting.GREEN).styled((style) -> {
-                        return style.withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_FILE, screenshot.getAbsolutePath()));
-                    });
-                    this.client.player.sendMessage(new TranslatableText("map_saver.success", "Map #" + mapId, text), false);
+                    Text text = Text.literal(screenshot.getName())
+                            .formatted(Formatting.UNDERLINE, Formatting.GREEN)
+                            .styled(
+                                    style -> style.withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_FILE, screenshot.getAbsolutePath())));
+                    this.client.player.sendMessage(Text.translatable("map_saver.success", "Map #" + mapId, text), false);
 
                 } catch (IOException e) {
                     e.printStackTrace();
