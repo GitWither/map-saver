@@ -4,7 +4,7 @@
   "package": "daniel.map_saver.mixin",
   "compatibilityLevel": "JAVA_16",
   "client": [
-    "ItemFrameEntityMixin",
+    "MinecraftClientMixin",
     "MapRendererInvoker",
     "MapTextureAccessor",
     "ScreenshotRecorderInvoker"
