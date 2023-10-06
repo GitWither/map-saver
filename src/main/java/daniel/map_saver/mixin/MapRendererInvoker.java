@@ -1,10 +1,8 @@
 package daniel.map_saver.mixin;
 
 import net.minecraft.client.render.MapRenderer;
-import net.minecraft.client.texture.TextureManager;
 import net.minecraft.item.map.MapState;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.gen.Accessor;
 import org.spongepowered.asm.mixin.gen.Invoker;
 
 @Mixin(MapRenderer.class)
